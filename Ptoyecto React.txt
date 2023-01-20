@@ -1,0 +1,111 @@
+/--------------- PROYECTO DE REACT (Fecha de entrega el 27 de Enero):
+
+	*  Equipo: Verónica López Pascual y Gustavo Okenve Martínez
+
+	
+* REQUISITOS DEL PROYECTO:
+
+	-1º La web ha de ser responsive (Mirar estilos de CSS o SCSS de Bootstrap para ahorrar tiempo en la maquetación).
+
+ 	-2º 6 Componentes reutilizables (En principio hay 8).
+
+	-3º Constar al menos de 4 páginas:
+
+		- Listas completas de peliculas y cines con paginación por parametrización (/movies/?page=; /cinemas/?page=)
+		- Detalles de películas y cines con parametrización (/:titile, /:name)  y filtro
+		- Formulario de registro (/register)
+		- Formulario de login (/login
+
+	-4º Un formulario controlado y un botón para registro y login.
+
+	-5º Usar Use Context ó Redux (Usar Use Context por sencillez).
+
+	- Bonus : Emplear la api creada por nosotros en Nodejs. Porque admite métodos POST, PUT y DELETE.
+
+
+*   COMPONENTES:
+
+
+	1R- Header --  Con un H1 del nombre de la web y Nav de Inicio, registro, inicio de sesión y buscar, (En todos los componentes de vistas (W)). Usar <lu>,<li>  para poder pintarlos y <a> para los Links
+
+	2R- ReqApi -- Hacer peticiones a la Api mediante fetch o axios para ejecutarla en App. Guardarlas como variables de estado en Use Contex o enviarla por Props en App
+
+	2W- Home --  Dos botones de peliculas y cines con listado de películas por defecto al hacer click en el botón de cines se cambia a listado de cines
+
+	3W- AllMovies -- Listado de todas las películas con paginación por parametrización (Hacer filtro mediante un input onChange para filtrar películas por título, género o año)
+
+	4W- AllCinemas -- Listado de todas los cines con paginación por parametrización (Hacer filtro mediante un input onChange para filtrar cines por nombre o dirección)
+
+	5W- DetailMovie -- Vista del detalle de una película. Añadir sinópsis, premios (en un array) y ficha técnica (objeto con director foto, productor, etc...) para esos detalles en la BD de Node. Incluir input para              	busqueda de nueva película
+
+	6w- DetailCinema -- Vista del detalle de un cine. Añadir página web, telf., etc... Incluir input para busqueda de nuevo cine
+
+	¿(7R- Filter -- Input para filtrar películas o cines (Utilizar componente Input?))? -- "Darle una vuelta"
+
+	8R- Input -- Input para reutilizar en los 2 formularios (registro y login), en los filtros de las listas completas de películas y cines y, en las busquedas de películas y cines.
+
+	9R- UserForm -- Formulario de registro y logueo.
+
+	10R- Button -- Botón on click para; envío de formularios, Nav del Header (Inicio, Registro, Iniciar sesión, buscar, paginación y logout (logout sólo para cuando se está logueado))
+
+	11W- Searcher -- Componente donde elegir que busqueda queremos hacer, si por película o por cine
+
+	12C- FoundMovie -- Busqueda de película (mediante inputs en la página detalle de la película). Habrá que hacer un ToLowerCase
+
+	13C- FoundCinema -- Busqueda de cine (mediante inputs en la página detalle del cine). Habrá que hacer un ToLowerCase
+
+	14R- ErrorMsg -- Para mostrar en posibles errores
+
+R= Componente reutilizable
+W= Componente de vista (página o ruta)
+C= Componente reutilizable empleado sólo una vez
+
+
+
+* ENDPOINTS (https//localhost4000):
+
+
+- CON MÉTODO GET:
+
+	1*. /movies --> Todas la películas.
+	2. /movies/id --> Buscar película por id (no será necesario).
+	3. /movies/title/nombre_de_la_película --> Buscar película por título.
+	4. /movies/genre/género_de_la_película --> Buscar película por género.
+	5. /movies/year/año_buscado  --> Buscar películas desde el año seleccionado.
+
+	6*. /cinemas --> Todos los cines.
+	7. /cinemas/id --> Cines por id (no será necesario).
+	8. /cinemas/name/nombre_del_cine --> Buscar cine por nombre.
+	9. /cinemas/movie/nombre_de_la_película --> Buscar cine por el nombre de una película.
+
+- CON MÉTODO POST:
+
+	10. /movies/create_movie  --> Añadir una nueva película.
+
+	11. /cinemas/create_cinema --> Añadir un nuevo cine.
+
+	12*. /user/register --> Registrar usuario.
+	13*. /user/login --> Loguear usuario.
+	14*. /user/logout --> Desloguear usuario.
+
+- CON MÉTODO PUT:
+
+	15. /movies/actualizar/id --> Actualizar película por id.
+
+	16. /cinemas/actualizar/id --> Actualizar cine por id.
+
+- CON MÉTODO DELETE:
+
+	17. /movies/delete/id --> Borrar película por id.
+
+	18. /cinemas/delete/id --> Borrar cine por id.
+
+	19*. /user/delete --> Borrar usuario.
+
+* Endpoints necesarios para el proyecto
+
+
+
+
+
+
