@@ -90,9 +90,9 @@ C= Componente reutilizable empleado sólo una vez
 
 - CON MÉTODO PUT:
 
-	15. /movies/actualizar/id --> Actualizar película por id.
+	15. /movies/update/id --> Actualizar película por id.
 
-	16. /cinemas/actualizar/id --> Actualizar cine por id.
+	16. /cinemas/update/id --> Actualizar cine por id.
 
 - CON MÉTODO DELETE:
 
