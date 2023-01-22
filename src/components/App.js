@@ -1,11 +1,12 @@
 import '../styles/App.scss';
+import ReqsApi from "./ReqsApi";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      <h1>Let's go</h1>
-      </header>
+      <ReqsApi />
+
+
     </div>
   );
 }
