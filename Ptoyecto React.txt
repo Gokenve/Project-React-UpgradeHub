@@ -12,9 +12,9 @@
 	-3º Constar al menos de 4 páginas:
 
 		- Listas completas de peliculas y cines con paginación por parametrización (/movies/?page=; /cinemas/?page=)
-		- Detalles de películas y cines con parametrización (/:titile, /:name)  y filtro
+		- Detalles de películas y cines con parametrización (/:title, /:name)  y filtro
 		- Formulario de registro (/register)
-		- Formulario de login (/login
+		- Formulario de login (/login)
 
 	-4º Un formulario controlado y un botón para registro y login.
 

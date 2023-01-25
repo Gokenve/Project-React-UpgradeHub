@@ -2,9 +2,7 @@ import "../styles/AllMovies.scss"
 import React from "react";
 
 function AllMovies ({ listMovies }) {
-    console.log(listMovies);
     
-
     return (
         <section className = "AllMovies">
             <ul>
