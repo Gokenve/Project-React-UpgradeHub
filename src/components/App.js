@@ -1,38 +1,59 @@
-import '../styles/App.scss';
+import "../styles/App.scss";
+
 import { useEffect, useState } from "react";
-import axios from "axios";
-import ReqsApi from "../sevices/ReqsApi";
-import Home from '../Views/Home';
+import { Routes, Route } from "react-router-dom";
+
+import Home from "../Views/Home";
+
+import reqsApiMovies from "../sevices/reqsApiMovies";
+import reqsApiCinemas from "../sevices/reqsApiCinemas";
 
 function App() {
-
   const [listMovies, setListMovies] = useState([]);
   const [listCinemas, setListCinemas] = useState([]);
-  console.log('UseState ---- ', listMovies, listCinemas);
+  const [home, setHome] = useState('movies');
+  const [filter, setFilter] = useState('movies');
 
   useEffect(() => {
-    axios.get("http://localhost:4000/movies")
-    .then((res1) => {
-        const ListAllMovies = res1.data;
-        console.log(ListAllMovies);
-        setListMovies(ListAllMovies);
+    reqsApiMovies().then((res1) => {
+      const ListAllMovies = res1.data;
+      setListMovies(ListAllMovies);
     });
-}, []);
-
-useEffect(() => {
-
-  axios.get("http://localhost:4000/cinemas").then((res2) => {
+    reqsApiCinemas().then((res2) => {
       const listAllCinemas = res2.data;
-      console.log(listAllCinemas);
       setListCinemas(listAllCinemas);
-  });
+    });
+  }, []);
 
-}, []);
+  const handleClicK = (ev) =>
+  {
+      console.log('---------- HandleClick en App ----------', ev.target.id);
+      ev.target.className === "buttonHome" &&
+      ev.preventDefault();
+      setHome(ev.target.id);
+      setFilter(ev.target.id);
+      
+  }
 
-  console.log('App ------- ', ReqsApi);
+    const handleFilter = (ev) =>
+  {
+    console.log('Filtro app -------- ', ev.target);
+    ev.preventDefault();
+    setListMovies(ev.target.value);
+    setListCinemas(ev.target.value);
+  }
+
   return (
     <div className="App">
-      <Home listMovies = {listMovies} listCinemas = {listCinemas} />
+      <Routes>
+        <>{/*Route path="/" element={} */}</>
+        <Route path= "/home/*" element= { 
+          <Home listMovies= {listMovies} listCinemas= {listCinemas} handleFilter= {handleFilter} handleClicK= {handleClicK} home= {home} filter= {filter} /> 
+        }/>
+        <>{/*Route path= "/reister" element= {} */}</>
+      </Routes>
+
+
     </div>
   );
 }
