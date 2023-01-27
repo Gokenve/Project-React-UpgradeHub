@@ -12,6 +12,7 @@ function App() {
 
   //? State Variables Declarations
   const [listMovies, setListMovies] = useState([]);
+  //const [filteredListMovies, setFilteredListMovies] = useState([]);
   const [movie, setMovie] = useState({
     _id: "",
     title: "",
@@ -35,17 +36,16 @@ function App() {
       _id: "",
       picture: "",
       title: "",
-      genre: [],
-    }],
-    genre: [],
-    data_sheet: {
-      producers: [],
-      script: [],
       duration: "",
-    }
+      contact: {
+        email: "",
+        address: "",
+        phone: "",
+      } 
+    }],
+      
   });
   const [page, setPage] = useState('movies');
-  const [filter, setFilter] = useState('movies');
 
   //? Request to the API
   useEffect(() => {
@@ -62,25 +62,22 @@ function App() {
   //? Clicks event handler function
   const handleClicK = (ev) =>
   {
-      console.log('---- click event en App -----', ev.target);
-      ev.target.className === "buttonHome" &&
-      ev.preventDefault();
-      setPage(ev.target.id);
-      setFilter(ev.target.id);
-
-      ev.target.id &&
-      ev.preventDefault();
-      const foundMovie = listMovies.find( movieToFind => {
-        return movieToFind._id === ev.target.id
-      });
-      console.log(foundMovie);
-      setMovie({ ...foundMovie });
+    let eventFromnPage = ev.target.attributes.page.value; 
+    ev.preventDefault();
+    const foundMovie = listMovies.find( movieToFind => {
+      return movieToFind._id === ev.target.id
+    });
+    const foundCinema = listCinemas.find( cinemaToFind => {
+      return cinemaToFind._id === ev.target.id
+    });
+    setPage(eventFromnPage)
+    setMovie({ ...foundMovie });
+    setCinema({ ...foundCinema });
   }
 
     //? Inputs event handler function
     const handleFilter = (ev) =>
   {
-    console.log('Filtro app -------- ', ev.target);
     ev.preventDefault();
     setListMovies(ev.target.value);
     setListCinemas(ev.target.value);
@@ -95,13 +92,13 @@ function App() {
           listMovies = {listMovies}
           listCinemas = {listCinemas}
           movie = {movie}
+          cinema = {cinema}
           handleFilter = {handleFilter}
           handleClicK = {handleClicK}
           page= {page}
-          filter= {filter}
            /> 
         }/>
-        <>{/*Route path= "/reister" element= {} */}</>
+        <>{/*Route path= "/user" element= {} */}</>
       </Routes>
     </div>
   );
