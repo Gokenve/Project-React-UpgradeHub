@@ -1,12 +1,13 @@
 import "../styles/AllCinemas.scss";
 import React from "react";
-import { Routes } from "react-router-dom";
+import CardButton from "../components/cardButton/CardButton.jsx";
 
-function AllCinemas({ listCinemas }) {
+function AllCinemas({ listCinemas, handleClicK }) {
 
   return (
     <section className="allCinemas">
-        <ul>
+      <CardButton listCinemas={listCinemas} handleClick= {handleClicK} />
+        {/*<ul>
           {listCinemas.map((cinema, index) => {
             return (
               <article className="cinemasCard" key={index}>
@@ -28,7 +29,7 @@ function AllCinemas({ listCinemas }) {
               </article>
             );
           })}
-        </ul>
+        </ul>*/}
     </section>
   );
 }

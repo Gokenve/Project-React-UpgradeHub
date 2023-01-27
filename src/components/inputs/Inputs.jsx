@@ -1,11 +1,11 @@
 import "./Inputs.scss";
 import React from 'react'
 
-const Inputs = ({ typeInput, handleFilter, valuesText, id, inputText }) => {
+const Inputs = ({ type, handleFilter, value, page, inputText }) => {
   return (
-    <div>
-       <label htmlFor={id}>{inputText}</label>
-       <input type={typeInput} onChange={handleFilter} value={valuesText} id={id} />
+    <div className="containerInput">
+       <label htmlFor={page}>{inputText}</label>
+       <input className="innerText" type={type} onChange={handleFilter} value={value} id={page} />
     </div>
   )
 }

@@ -9,31 +9,62 @@ import AllCinemas from "./AllCinemas";
 import Button from "../components/button/Button";
 import Inputs from "../components/inputs/Inputs";
 
-function Home({ home, listMovies, listCinemas, handleFilter, handleClicK, filter }) {
-  //console.log('Home ----- ', listMovies);
-  //console.log('Home ----- ', listCinemas);
- //console.log('Home tipo --------- ', typeFilter)
- /*const valuesText = (textInput) => {
-  filter === 'movies' ? textInput = 'Título de la película' : textInput = 'Nombre del cine';
-  console.log('----- textImput de Home -------- ', textInput)
-  return textInput;
- }*/
- const typeInput = 'text';
+function Home({
+  listMovies,
+  listCinemas,
+  movie,
+  handleFilter,
+  handleClicK,
+  page,
+  filter,
+}) {
+  let inputValue;
+  let inputText;
+
+  if (page === "movies") {
+    inputValue = "Título de la película";
+    inputText = "Filtrar película";
+  } else {
+    inputValue = "Nombre del cine";
+    inputText = "Filtrar cine ";
+  }
 
   return (
     <>
-      <div className= "containerButtons">
-        <Button text= "Películas" id= "movies" typeButton= "buttonHome" handleClicK= {handleClicK} />
-        <Button text= "Cines" id= "cinemas" typeButton= "buttonHome" handleClicK= {handleClicK}  />
-        <Inputs type= {typeInput} onChange= {handleFilter} value= {home}/>
+      <div className="containerButtons">
+        <Button
+          text="Películas"
+          page="movies"
+          classButton="buttonHome"
+          handleClicK={handleClicK}
+        />
+        <Button
+          text="Cines"
+          page="cinemas"
+          classButton="buttonHome"
+          handleClicK={handleClicK}
+        />
+        <Inputs
+          type="text"
+          handleFilter={handleFilter}
+          value={inputValue}
+          page={page}
+          inputText={inputText}
+        />
 
         {/*<label htmlFor="">Filtrar por {filter}</label>
         <input type="text" onChange={handleFilter} value={filter} />*/}
       </div>
-      <section className="Home" >
-        { home === 'movies' ? <AllMovies listMovies ={listMovies}/>
-        :
-        <AllCinemas listCinemas ={listCinemas}/>}
+      <section className="Home">
+        {page === "movies" ? (
+          <AllMovies
+          listMovies={listMovies}
+          handleClicK={handleClicK} 
+          movie={movie}
+          />
+        ) : (
+          <AllCinemas listCinemas={listCinemas} handleClicK={handleClicK} />
+        )}
       </section>
     </>
   );

@@ -1,14 +1,19 @@
 import "../styles/AllMovies.scss"
 import React from "react";
+import CardButton from "../components/cardButton/CardButton.jsx";
 
-function AllMovies ({ listMovies }) {
-    
+function AllMovies ({ listMovies, handleClicK }) {
+
+    //const handleMovie = (movie) => {
+        //console.log(movie);
+    //}
     return (
         <section className = "AllMovies">
-            <ul>
+            <CardButton listMovies={listMovies} handleClicK= {handleClicK} />
+            {/*<ul>
                 {listMovies.map(( movie, index ) => {
                     return (
-                        <article className = "moviesCard" key = {index}>
+                        <article className = "moviesCard" onClick={handleMovie(movie)} key = {index}>
                             <li className="listMovies">
                                 <img className = "movieImg" src = {movie.picture} alt ={movie.title} />
                                 <p>{movie.title}</p>
@@ -17,7 +22,7 @@ function AllMovies ({ listMovies }) {
                     </article>
                     )
                 })}
-            </ul>
+            </ul>*/}
         </section>
     )
 }

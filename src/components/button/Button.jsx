@@ -3,17 +3,16 @@ import React from 'react'
 
 const Button = ({ 
     text, 
-    id,
-    typeButton, 
+    page,
+    classButton, 
     handleClicK 
 }) => {
 
   return (
-    <div>
-        <button className={typeButton} onClick= {handleClicK} id={id}>
+    <div className="containerButton">
+        <button className={classButton} onClick= {handleClicK} id={page}>
           {text}
         </button>
-      
     </div>
   )
 }
