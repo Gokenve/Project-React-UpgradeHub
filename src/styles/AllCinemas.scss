@@ -1,5 +1,6 @@
 .AllCinemas {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
@@ -9,13 +10,11 @@
 
 .cinemasCard {
   display: flex;
-  flex-direction: column;
   background-color: whitesmoke;
-  justify-content: center;
   text-align: center;
   padding: 10px;
   width: 200px;
-  height: 250px;
+  height: 300px;
   border-radius: 8px;
   box-shadow: 0 2px 2px;
   overflow: hidden;
@@ -28,11 +27,13 @@
 }
 
 .moviesCinemaCard {
-  background-color: aquamarine;  
+  margin-top: 45px;
+  background-color: aquamarine;
   text-align: center;
   translate: -10%;
 }
 
 .listCinemas {
+  font-size: 15px;
   list-style-type: none;
 }

@@ -8,15 +8,18 @@ import AllCinemas from "./AllCinemas";
 
 import Button from "../components/button/Button";
 import Inputs from "../components/inputs/Inputs";
+import DetailMovie from "./DetailMovie";
+import DetailCinema from "./DetailCinema";
+
 
 function Home({
   listMovies,
   listCinemas,
   movie,
+  cinema,
   handleFilter,
   handleClicK,
   page,
-  filter,
 }) {
   let inputValue;
   let inputText;
@@ -51,20 +54,28 @@ function Home({
           page={page}
           inputText={inputText}
         />
-
-        {/*<label htmlFor="">Filtrar por {filter}</label>
-        <input type="text" onChange={handleFilter} value={filter} />*/}
       </div>
       <section className="Home">
-        {page === "movies" ? (
+        {page === "movies" && (
           <AllMovies
-          listMovies={listMovies}
-          handleClicK={handleClicK} 
+            listMovies={listMovies}
+            handleClicK={handleClicK}
+            page={page} /> )}
+        {page === "cinemas" && (
+          <AllCinemas
+            listCinemas={listCinemas}
+            handleClicK={handleClicK}
+            page={page}/>)}
+        {page === "detailMovie" &&
+          <DetailMovie
           movie={movie}
-          />
-        ) : (
-          <AllCinemas listCinemas={listCinemas} handleClicK={handleClicK} />
-        )}
+          handleClicK={handleClicK}
+          page={page} />}
+        {page === "detailCinema" &&
+          <DetailCinema
+            movie={cinema}
+            handleClicK={handleClicK}
+            page={page} />}
       </section>
     </>
   );

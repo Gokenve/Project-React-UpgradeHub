@@ -10,7 +10,7 @@ const Button = ({
 
   return (
     <div className="containerButton">
-        <button className={classButton} onClick= {handleClicK} id={page}>
+        <button className={classButton} onClick= {handleClicK} page={page}>
           {text}
         </button>
     </div>
