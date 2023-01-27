@@ -1,5 +1,6 @@
 .Allmovies {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
@@ -36,5 +37,6 @@
 }
 
 .listMovies {
+    font-size: 15px;
     list-style-type: none;
 }
