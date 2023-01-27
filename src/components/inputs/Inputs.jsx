@@ -5,7 +5,7 @@ const Inputs = ({ type, handleFilter, value, page, inputText }) => {
   return (
     <div className="containerInput">
        <label htmlFor={page}>{inputText}</label>
-       <input className="innerText" type={type} onChange={handleFilter} value={value} id={page} />
+       <input className="inputClass" type={type} onChange={handleFilter} value={value} id={page} />
     </div>
   )
 }

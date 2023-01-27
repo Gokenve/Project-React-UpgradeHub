@@ -1,0 +1,16 @@
+.containerMovieButton {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+.movieButton {
+    margin:10px;
+}
+
+.cinemaButton {
+    margin:10px;
+    align-items: center;
+}
